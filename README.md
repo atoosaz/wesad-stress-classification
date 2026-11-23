@@ -69,6 +69,7 @@ An end-to-end Python/Jupyter pipeline that detects stress from wrist-worn physio
 │   └── wesad_features_with_phase_space.csv    # extracted feature table used by notebooks 02 and 03
 ├── figures/                                   # plots shown in this README
 ├── requirements.txt
+├── LICENSE
 └── README.md
 ```
 
@@ -91,3 +92,9 @@ To regenerate features from raw signals with notebook 01:
 - **Dataset:** P. Schmidt, A. Reiss, R. Duerichen, C. Marberger, K. Van Laerhoven. *Introducing WESAD, a Multimodal Dataset for Wearable Stress and Affect Detection.* ICMI 2018.
 - **cvxEDA:** A. Greco, G. Valenza, A. Lanata, E. P. Scilingo, L. Citi. *cvxEDA: A Convex Optimization Approach to Electrodermal Activity Processing.* IEEE TBME 2016 ([original code](https://github.com/lciti/cvxEDA), GPL-3.0).
 - **Low-pass filter helpers:** adapted from [MIT eda-explorer](https://github.com/MITMediaLabAffectiveComputing/eda-explorer).
+
+## License
+
+This project is released under the [MIT License](LICENSE).
+
+The `cvxEDA` function in `notebooks/01_feature_extraction.ipynb` is third-party code by Greco et al. and remains under its original [GPL-3.0 license](https://github.com/lciti/cvxEDA).
