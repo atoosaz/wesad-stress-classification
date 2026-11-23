@@ -1,0 +1,16 @@
+# Raw WESAD data (large, license-restricted)
+data/WESAD/
+*.pkl
+data/subject_feats/
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.venv/
+venv/
+
+# OS
+desktop.ini
+Thumbs.db
+.DS_Store
