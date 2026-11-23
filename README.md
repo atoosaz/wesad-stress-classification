@@ -23,6 +23,8 @@ An end-to-end Python/Jupyter pipeline that detects stress from wrist-worn physio
 
 ## Key results
 
+![Global vs. personalized model accuracy](figures/global_vs_personalized.png)
+
 | Model | Global accuracy | Personalized accuracy |
 |---|---|---|
 | XGBoost | 0.871 | **0.926** |
@@ -36,6 +38,26 @@ An end-to-end Python/Jupyter pipeline that detects stress from wrist-worn physio
 - Personalization improved every classical model, with the largest gains for SVM-RBF (+10.5 pts) and KNN (+7.4 pts).
 - Accuracies are averaged over the 4 held-out "personal" subjects (S5, S8, S13, S15).
 
+**MLP confusion matrices on the held-out subjects** (1 = baseline, 2 = stress)
+
+| Global model | Personalized model |
+|---|---|
+| ![Global MLP confusion matrix](figures/mlp_confusion_global.png) | ![Personalized MLP confusion matrix](figures/mlp_confusion_personalized.png) |
+
+## Data exploration
+
+**Dataset balance:** 1,186 windows from 15 subjects (64% baseline, 36% stress).
+
+![Class distribution](figures/class_distribution.png)
+
+**Feature significance:** 78 of the 102 features differ significantly between baseline and stress (ANOVA, p < 0.01). Nonlinear EDA, BVP and respiration features rank highest: DFA alpha, entropy measures, and the Lyapunov exponent.
+
+![Feature significance](figures/feature_significance.png)
+
+**t-SNE embedding of the feature space:** baseline and stress form many small, separate clusters rather than two clean groups.
+
+<img src="figures/tsne_2d.png" alt="t-SNE 2D projection" width="600">
+
 ## Repository structure
 
 ```
@@ -45,6 +67,7 @@ An end-to-end Python/Jupyter pipeline that detects stress from wrist-worn physio
 │   └── 03_stress_classification.ipynb         # final analysis: EDA, kernel PCA, global vs personalized, clustering
 ├── data/
 │   └── wesad_features_with_phase_space.csv    # extracted feature table used by notebooks 02 and 03
+├── figures/                                   # plots shown in this README
 ├── requirements.txt
 └── README.md
 ```
